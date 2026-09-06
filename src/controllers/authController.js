@@ -70,7 +70,7 @@ const signUp = asyncWrapper(
 )
 
 
-const login = asyncWrapper(
+const loginUser = asyncWrapper(
     async (req, res, next) => {
         // Your login logic here
         const {username, password} = req.body;
@@ -96,4 +96,9 @@ async function test(){const password = 'hello4'
     }
 
 test()
+
+module.exports = {
+    signUp,
+    loginUser
+}
 

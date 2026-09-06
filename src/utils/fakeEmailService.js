@@ -1,14 +1,21 @@
 
-const mail = require('nodemailer')
 
+const m = require('nodemailer');
 
-const main = async () => {
-
-    mail.createTransport({
+m.createTransport(
+    {
         service: 'gmail',
         host: 'smtp.gmail.com',
-        port: 587,
-        secure:false
-    })
+        port: 543,
+        secure: false,
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        }
 
-}
+    }
+).sendMail({
+    from: `theelitedigitalservices@gmail.com`,
+    to: []
+})
+
